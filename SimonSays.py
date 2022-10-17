@@ -12,5 +12,5 @@ my_list = [red, green, blue, yellow]
 my_list.append(random.randint(0, 4))
 
 while True:
-    
+  
   print(my_list)
