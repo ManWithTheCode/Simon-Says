@@ -6,6 +6,7 @@ import random
 
 my_list = ['red', 'green', 'blue', 'yellow']
 
+
 def fade_out(color, increment):
     rgb = color
     maximum = max (rgb[0], max(rgb[1], rgb[2]))
@@ -39,6 +40,26 @@ def fade_in(color, increment):
         np.fill((int(r), int(g), int(b)))
         np.show()
         time.sleep(increment)
+def color_wheel(pos):
+    # Input a value 0 to 255 to get a color value.
+    # The colours are a transition r - g - b - back to r.
+    if pos < 0 or pos > 255:
+        return (0, 0, 0)
+    if pos < 85:
+        return (255 - pos * 3, pos * 3, 0)
+    if pos < 170:
+        pos -= 85
+        return (0, 255 - pos * 3, pos * 3)
+    pos -= 170
+    return (pos * 3, 0, 255 - pos * 3)
+
+def switch_color(wait):
+    for j in range(255):
+        for i in range(len(pixels)):
+            rc_index = (i * 256 // len(pixels)) + j
+            pixels[i] = wheel(rc_index & 255)
+        time.sleep(wait)
+        
 touch_pad = board.A1
 touch = touchio.TouchIn(touch_pad)
 led = dio.DigitalInOut(board.LED)
@@ -56,4 +77,5 @@ Touch3 = touchio.TouchIn(A3)
 Touch4 = touchio.TouchIn(A4)
 
 while True:
+    
     print(my_list)
