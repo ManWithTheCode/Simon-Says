@@ -3,13 +3,17 @@ import board
 import touchio
 import digitalio as dio
 import random
+import neopixel
 
-my_list = ['red', 'green', 'blue', 'yellow']
+my_list = []
 
+def add_color_to_list():
+    color_list.append(random.choice(['Red', 'Green', 'Blue', 'Yellow']))
+add_color_to_list()
 
 def fade_out(color, increment):
     rgb = color
-    maximum = max (rgb[0], max(rgb[1], rgb[2]))
+    maximum = max(rgb[0], max(rgb[1], rgb[2]))
     r_inc = rgb[0] / maximum
     g_inc = rgb[1] / maximum
     b_inc = rgb[2] / maximum
@@ -40,9 +44,8 @@ def fade_in(color, increment):
         np.fill((int(r), int(g), int(b)))
         np.show()
         time.sleep(increment)
+# Sets the colors to switch between each other.
 def color_wheel(pos):
-    # Input a value 0 to 255 to get a color value.
-    # The colours are a transition r - g - b - back to r.
     if pos < 0 or pos > 255:
         return (0, 0, 0)
     if pos < 85:
@@ -59,7 +62,7 @@ def switch_color(wait):
             rc_index = (i * 256 // len(pixels)) + j
             pixels[i] = wheel(rc_index & 255)
         time.sleep(wait)
-        
+
 touch_pad = board.A1
 touch = touchio.TouchIn(touch_pad)
 led = dio.DigitalInOut(board.LED)
@@ -76,6 +79,3 @@ Touch2 = touchio.TouchIn(A2)
 Touch3 = touchio.TouchIn(A3)
 Touch4 = touchio.TouchIn(A4)
 
-while True:
-    
-    print(my_list)
