@@ -62,7 +62,11 @@ def switch_color(wait):
             rc_index = (i * 256 // len(pixels)) + j
             pixels[i] = wheel(rc_index & 255)
         time.sleep(wait)
-
+def red():
+    red = [255, 0, 0]
+def game_start():
+    if game =  red:
+        random.randint(green, blue)
 touch_pad = board.A1
 touch = touchio.TouchIn(touch_pad)
 led = dio.DigitalInOut(board.LED)
@@ -79,3 +83,5 @@ Touch2 = touchio.TouchIn(A2)
 Touch3 = touchio.TouchIn(A3)
 Touch4 = touchio.TouchIn(A4)
 
+while True:
+    
