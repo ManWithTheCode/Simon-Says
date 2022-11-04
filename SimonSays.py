@@ -5,11 +5,10 @@ import digitalio as dio
 import random
 import neopixel
 
-my_list = []
+color_list = []
 
 def add_color_to_list():
     color_list.append(random.choice(['Red', 'Green', 'Blue', 'Yellow']))
-add_color_to_list()
 
 def fade_out(color, increment):
     rgb = color
@@ -64,14 +63,11 @@ def switch_color(wait):
         time.sleep(wait)
 def red():
     red = [255, 0, 0]
-def game_start():
-    if game =  red:
-        random.randint(green, blue)
+        
 touch_pad = board.A1
 touch = touchio.TouchIn(touch_pad)
 led = dio.DigitalInOut(board.LED)
 led.direction = dio.Direction.OUTPUT
-my_list.append(random.randint(0, 4))
 
 A1 = board.AI
 A2 = board.A2
@@ -84,4 +80,7 @@ Touch3 = touchio.TouchIn(A3)
 Touch4 = touchio.TouchIn(A4)
 
 while True:
+    if 
+    print(color_list)
+    add_color_to_list()
     
